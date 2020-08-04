@@ -6,7 +6,7 @@ Simple app to find best loans with least risk and highest yield.
 ```
 git clone git@github.com:jwachira/affirm-loan-processor.git
 
-run `bin/setup` to install dependencies
+run bin/setup to install dependencies
 
 ````
 
