@@ -9,11 +9,7 @@ class CLI
     loan_processor = AffirmLoanProcessor::LoanProcessor.new(input_path)
     yields, assignments = loan_processor.process!
 
-    binding.pry
-
     puts "Generate loan assignments"
-    # binding.pry
-
     CSV.open(assignments_file_path, "wb") do |csv|
       keys = assignments.first.keys
       csv << assignments.first.keys
@@ -21,7 +17,6 @@ class CLI
         csv << assignment.values_at(*keys)
       end
     end
-
     puts "Done generating loan assignments#{assignments_file_path}"
 
     puts "Generate yields"

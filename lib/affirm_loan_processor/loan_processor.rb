@@ -18,7 +18,7 @@ module AffirmLoanProcessor
           default_likelihood: row['default_likelihood'].to_f,
           state: row['state']
         )
-
+        
         facility_service = Model::Facility.find_funding_facility(loan)
 
         assignments.push({
