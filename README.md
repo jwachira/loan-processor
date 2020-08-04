@@ -1,4 +1,4 @@
-# Affirm Loan Processor
+Loan Processor
 Simple app to find best loans with least risk and highest yield.
 
 ## Installation
