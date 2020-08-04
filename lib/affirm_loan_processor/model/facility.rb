@@ -27,18 +27,18 @@ module AffirmLoanProcessor
       end
 
       def self.find_funding_facility(loan)
-         all.each_with_object({}) do |facility, facility_match|
+         all.each_with_object({}) do |facility, best_deal|
           next unless (loan.amount <= facility.amount) && (loan.interest_rate >= facility.interest_rate)
 
           next unless Covenant.requirements_met?(facility.id, loan)
 
-          new_interest = loan.amount * facility.interest_rate
+          new_expected_yield = Loan.expected_yield(facility, loan)
 
-          if facility_match[:facility].nil? || new_interest.to_f < facility_match[:interest].to_f
-            facility_match[:interest] = new_interest
-            facility_match[:facility] = facility
+          if best_deal[:facility].nil? || new_expected_yield > best_deal[:expected_yield]
+            best_deal[:expected_yield] = new_expected_yield
+            best_deal[:facility] = facility
           end
-        end[:facility]
+        end
       end
     end
   end
