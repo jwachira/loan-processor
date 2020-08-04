@@ -1,18 +1,18 @@
 module AffirmLoanProcessor
   class LoanProcessor
     DATA_SOURCE = './data/loans.csv'.freeze
-    attr_reader :loan_file_path
+    attr_reader :loans_file_path
 
-    def initialize(loan_file_path = DATA_SOURCE)
-      @loan_file_path = loan_file_path
+    def initialize(loans_file_path = DATA_SOURCE)
+      @loans_file_path = loans_file_path
     end
 
     def process!
-      covenants = AffirmLoanProcessor::Model::Covenant.all
-      facilities = AffirmLoanProcessor::Model::Facility.all
+      covenants = Model::Covenant.all
+      facilities = Model::Facility.all
 
-      CSV.foreach(loan_file_path, headers: true).each_with_object([]) do |row, assignments|
-        loan = AffirmLoanProcessor::Model::Loan.new(id: row['id'].to_i,
+      CSV.foreach(loans_file_path, headers: true).each_with_object([]) do |row, assignments|
+        loan = Model::Loan.new(id: row['id'].to_i,
           amount: row['amount'].to_i,
           interest_rate: row['interest_rate'].to_f,
           default_likelihood: row['default_likelihood'].to_f,

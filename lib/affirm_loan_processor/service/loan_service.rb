@@ -10,7 +10,7 @@ module AffirmLoanProcessor
       end
 
       def loan_assignment(facility)
-        @assignment = AffirmLoanProcessor::Service::AssignmentService.new(
+        @assignment = Service::AssignmentService.new(
           facility_id: facility.id,
           loan_id: loan.id
         )
@@ -23,7 +23,7 @@ module AffirmLoanProcessor
       end
 
       def facility
-        @facility ||= AffirmLoanProcessor::Model::Facility.find_funding_facility(loan)
+        facility = Model::Facility.find_funding_facility(loan)
       end
     end
   end
