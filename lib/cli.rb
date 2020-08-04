@@ -1,8 +1,8 @@
 class CLI
   def call
     input_path  = ARGV.shift || './data/loans.csv'
-    assignments_file_path = ARGV.shift || './assignments_output.csv'
-    yields_file_path = ARGV.shift || './yields_output.csv'
+    assignments_file_path = ARGV.shift || './assignments.csv'
+    yields_file_path = ARGV.shift || './yields.csv'
 
     puts "Process loans #{input_path}".freeze
 
