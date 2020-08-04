@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'pry'
+require 'csv'
+require "bundler/setup"
+
+require "./lib/affirm_loan_processor/model/bank"
+require "./lib/affirm_loan_processor/model/covenant"
+require "./lib/affirm_loan_processor/model/facility"
+require "./lib/affirm_loan_processor/model/loan"
+
+require "./lib/affirm_loan_processor/service/loan_service"
+require "./lib/affirm_loan_processor/service/assignment_service"
+
+require "./lib/affirm_loan_processor/loan_processor"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+# (If you use this, don't forget to add pry to your Gemfile!)
+# require "pry"
+# Pry.start
+
+require "irb"
+IRB.start(__FILE__)
