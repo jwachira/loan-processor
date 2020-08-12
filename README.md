@@ -1,4 +1,5 @@
-# Affirm Loan Processor
+## Loan Processor
+
 Simple app to find best loans with least risk and highest yield.
 
 ## Installation
@@ -6,14 +7,14 @@ Simple app to find best loans with least risk and highest yield.
 ```
 git clone git@github.com:jwachira/affirm-loan-processor.git
 
-run `bin/setup` to install dependencies
+run bin/setup to install dependencies
 
 ````
 
 ## Usage
 
 ```
-bin/runner loans.csv (Provide a CSV file with a list of loans you want to process)
+bundle exec bin/runner loans.csv (Provide a CSV file with a list of loans you want to process)
 
 ```
 
