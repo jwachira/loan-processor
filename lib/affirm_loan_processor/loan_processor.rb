@@ -18,15 +18,21 @@ module AffirmLoanProcessor
           default_likelihood: row['default_likelihood'].to_f,
           state: row['state']
         )
-        
+
         facility_service = Model::Facility.find_funding_facility(loan)
 
+        next unless facility_service[:facility]
+
+        facility = facility_service[:facility]
+
+        facility.amount -= loan.amount
+
         assignments.push({
-                          facility_id: facility_service[:facility]&.id,
+                          facility_id: facility.id,
                           loan_id: loan.id
                         })
         yields.push({
-                      facility_id: facility_service[:facility]&.id,
+                      facility_id: facility.id,
                       expected_yield: facility_service[:expected_yield]
                     })
       end
