@@ -14,7 +14,7 @@ run bin/setup to install dependencies
 ## Usage
 
 ```
-bin/runner loans.csv (Provide a CSV file with a list of loans you want to process)
+bundle exec bin/runner loans.csv (Provide a CSV file with a list of loans you want to process)
 
 ```
 
